@@ -14,7 +14,7 @@ const scoreDiv = document.getElementById("scoreContainer");
 // create our questions
 let questions = [
     {
-        "question" : "What does HTML stand for?",
+        question : "What does HTML stand for?",
         imgSrc : "images/html.png",
         choiceA : "Correct",
         choiceB : "Wrong",
