@@ -1,5 +1,5 @@
 // select all elements
-const start = document.getElementById("start");
+const start = document.getElementById("startGame");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
 const qImg = document.getElementById("qImg");
@@ -59,8 +59,6 @@ function renderQuestion(){
     choiceC.innerHTML = q.choiceC;
 }
 
-start.addEventListener("click",startQuiz);
-
 // start quiz
 function startQuiz(){
     start.style.display = "none";
@@ -71,6 +69,7 @@ function startQuiz(){
     TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
 
+start.addEventListener("click",startQuiz);
 // render progress
 function renderProgress(){
     for(let qIndex = 0; qIndex <= lastQuestion; qIndex++){
@@ -142,7 +141,7 @@ function scoreRender(){
     const scorePerCent = Math.round(100 * score/questions.length);
     
     // choose the image based on the scorePerCent
-    let img = (scorePerCent >= 80) ? "images/5.png" :
+    let img = (scorePerCent >= 80) ? "../images/5.png" :
               (scorePerCent >= 60) ? "images/4.png" :
               (scorePerCent >= 40) ? "images/3.png" :
               (scorePerCent >= 20) ? "images/2.png" :
@@ -152,6 +151,27 @@ function scoreRender(){
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
 
+const dictionary = [
+    ['images/VIDEO01.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO02.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO03.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO04.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO05.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO06.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO07.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO08.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO09.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO10.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO11.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO12.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+]
 
+const vids = $('.videos')
 
-
+for (const entry of dictionary) {
+    const entryElem = $(`<div class="video" style="background-image: url(${entry[0]})">
+        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${entry[1]}" data-gall="myGallery">
+        <i class="fas fa-play-circle"></i></a>
+    </div>`)
+    vids.append(entryElem)
+ }

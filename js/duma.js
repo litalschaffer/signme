@@ -7,9 +7,8 @@ function placeImage(w, h) {
     w = window.screen.availWidth;
     h = window.screen.availHeight;
 
-    document.body.innerHTML += '<img src=' + '"https://source.unsplash.com/collection/10578792/' + w + 'x' + h + '"' + ' id="bg" alt="">';
+    $('body').append($('<img src=' + '"https://source.unsplash.com/collection/10578792/' + w + 'x' + h + '"' + ' id="bg" alt="">'))
 }
-
 /**************************************
 * Get the date and place it at the top
 ***************************************/
