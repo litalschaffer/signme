@@ -12,6 +12,21 @@ const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 
+const dictionary = [
+    ['images/VIDEO01.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO02.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO03.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO04.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO05.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO06.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO07.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO08.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO09.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO10.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO11.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+    ['images/VIDEO12.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+]
+
 // create our questions
 let questions = [
     {
@@ -38,14 +53,12 @@ let questions = [
     }
 ];
 
-const Ques=$('.videoQues')
-const videoQuesElem = $(`<div class="video" style="background-image: url(${dictionary[0][0]})">
-        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${dictionary[0][1]}" data-gall="myGallery">
-        <i class="fas fa-play-circle"></i></a>
-    </div>`)
-    Ques.append(videoQuesElem)
-
-    
+// var videoQues=$('.videoQues')
+// const videoQuesElem = $(`<div class="video" style="background-image: url(${dictionary[0][0]})">
+//         <a class="venobox" data-autoplay="true" data-vbtype="video" href="${dictionary[0][1]}" data-gall="myGallery">
+//         <i class="fas fa-play-circle"></i></a>
+//     </div>`)
+//     vids.append(videoQuesElem)
 
 // create some variables
 
@@ -160,3 +173,19 @@ function scoreRender(){
     scoreDiv.innerHTML = "<img src="+ img +">";
     scoreDiv.innerHTML += "<p>"+ scorePerCent +"%</p>";
 }
+
+// for loop -dictionary gallery
+
+const vids = $('.videos')
+
+for (const entry of dictionary) {
+    const entryElem = $(`<div class="video" style="background-image: url(${entry[0]})">
+        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${entry[1]}" data-gall="myGallery">
+        <i class="fas fa-play-circle"></i></a>
+    </div>`)
+    vids.append(entryElem)
+ }
+
+
+    
+

@@ -19,14 +19,16 @@ function getDate() {
     var monthIndex = date.getMonth();
     var year = date.getFullYear();
 
-    var marker = "th";
+    var marker;
     if (day == 1 || day == 21) {
         marker = "st";
     } else if (day == 2 || day == 22) {
         marker = "nd";
     } else if (day == 3 || day == 23) {
         marker = "rd";
-    } 
+    } else {
+        marker = "th";
+    }
 
     document.getElementById('date').innerHTML = monthNames[monthIndex] + ' ' + day + marker + ' ' + year;
 }
@@ -55,15 +57,6 @@ function theWord(callback) {
 
     });
 }
-const words = $('#wordCon')
-var idic= Math.floor(Math.random(date.getDate)*dictionary.length);
-
-    const entryElem = $(`<div class="video" style="background-image: url(${dictionary[idic][0]})">
-        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${dictionary[idic][1]}" data-gall="myGallery">
-        <i class="fas fa-play-circle"></i></a>
-    </div>`)
-    words.append(entryElem)
- 
 
 /**********************************************************
 * Use the Wordnik API to get the pronunciation of the word
@@ -71,10 +64,10 @@ var idic= Math.floor(Math.random(date.getDate)*dictionary.length);
 function pronounceIt() {
     var baseUrl = "https://api.wordnik.com/v4/word.json/"
     var apiKey = "1380d58b8b5c33325130c0e8f340be6bc6fba6f7bb65bfc6f";
-    // // var word = $("#word").text();
-    // var word = "test";
-    // var apiUrl = baseUrl + word + "/pronunciations?useCanonical=false&typeFormat=ahd&limit=50&api_key=" + apiKey;
-    // $("#link").attr("href", "http://www.dictionary.com/browse/" + word + "?s=t"); //link to dictionary.com page
+    var word = $("#word").text();
+    var word = "test";
+    var apiUrl = baseUrl + word + "/pronunciations?useCanonical=false&typeFormat=ahd&limit=50&api_key=" + apiKey;
+    $("#link").attr("href", "http://www.dictionary.com/browse/" + word + "?s=t"); //link to dictionary.com page
 
 }
 
@@ -94,23 +87,5 @@ $(document).ready(function() {
 // use localStorage
 //https://developer.mozilla.org/en/docs/Web/API/Window/localStorage
 //http://codepen.io/CrocoDillon/pen/pIlKB?editors=0010
-
-
-
-// for loop -dictionary gallery
-// const dictionary = [
-//     ['images/VIDEO01.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO02.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO03.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO04.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO05.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO06.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO07.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO08.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO09.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO10.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO11.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO12.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-// ]
 
 

@@ -67,6 +67,7 @@ ul li a{
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
   
 .header p{
@@ -101,7 +102,7 @@ section{
 }
 
 section[id] {
-  scroll-margin-top: 5em;
+  scroll-margin-top: 75px;
 }
 
 #Intro{
@@ -132,7 +133,8 @@ h1{
   font-family:'Open Sans', sans-serif;
   font-weight: 700;
   font-size: 1.33em;
-  margin-bottom: 1.33em;
+  margin:1.33em;
+
 }
 
 .wrapper{
@@ -150,6 +152,8 @@ h1{
   min-height:38em;
   display: grid;
   grid-template-columns: 10% 1fr 10%;
+  grid-template-areas: 
+  ". content__section .";
   background:url(../images/myCover.jpg);
   height: 13.33em;
   background-size: cover;
@@ -160,7 +164,7 @@ h1{
 .content__section{
   grid-area:content__section;
   display: grid;
-  grid-auto-columns: 10% 1fr 10%;
+  grid-template-columns: 15% 1fr 15%;
   grid-template-areas:
   ". playlist ." ;
   margin-bottom: 4em;
@@ -191,8 +195,7 @@ img{
   
 .video{
   height:12em;
-  width: 12.66em;
-  grid-column-start: span 2;
+  grid-column-start: span 3;
   position: relative;
   transition: var(--ease);
   background-size: cover;
@@ -208,7 +211,7 @@ img{
   cursor: pointer;
   font-size:4em;
   position: absolute;
-  left:70%;
+  left:50%;
   top:50%;
   transform: translate(-50%,-50%);
   color: var(--light);
@@ -219,6 +222,20 @@ img{
   opacity: 1;
 }
 
+@media only screen and (max-width:1200px) {
+  .video {
+    grid-column-start: span 6;
+    height:240px;
+  }
+}
+
+      
+@media only screen and (max-width:800px){
+  .video{
+    grid-column-start: span 12;
+  }
+}
+
 /*word a day*/
 #date {
   font-size: 1.05em;
@@ -227,6 +244,7 @@ img{
   height: 1.5em;
   position: relative;
 }
+
 a, a:hover, a:active, a:visited {
   text-decoration: none !important;
   color: rgb(14, 13, 13) !important;
@@ -249,17 +267,26 @@ a, a:hover, a:active, a:visited {
   text-align: center;
   color: rgb(5, 5, 5);
   font-weight: 400;
+} 
+
+#wordCon{
+  scale:1.5;
+  margin : 3em auto ;
+  height: 12em;
+  width : 20em;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 5px 15px 0px;
 }
 
-#word {
-  font-size: 5em;
-  text-shadow: 0em 0em 3.33em #777;
+#wordCon:hover{
+  transform: scale(1.25);
 }
 
-#defin {
+/* #defin {
   margin-top: 10px;
   font-size: 1.2em;
-}
+}  */
 
 .hide {
   visibility: hidden;
@@ -269,8 +296,8 @@ a, a:hover, a:active, a:visited {
 #container{
   margin : 3em auto ;
   background-color:whitesmoke;
-  height: 19em;
-  width : 40em;
+  height: 25em;
+  width : 39em;
   border-radius: 5px;
   box-shadow: 0px 5px 15px 0px;
   position: relative;
@@ -280,14 +307,15 @@ a, a:hover, a:active, a:visited {
   font-size: 1.5em;
   font-weight: bolder;
   padding:2em;
-  width:20em; 
+  margin: 5.5em;
+  width:15em; 
   height:6em;
   border : 2px solid lightgrey; 
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
   position: absolute;
-  margin: 3.33em;
+  justify-items: ;
   color : lightgrey;
   background-color: #2B5FC1;
 }
@@ -296,14 +324,6 @@ a, a:hover, a:active, a:visited {
   border: 3px solid rgb(251, 251, 251);
   color : rgb(251, 251, 251);
   background-color: rgb(11, 29, 61);
-}
-
-#qImg{
-  width : 13.33em;
-  height :13.33em;
-  position: absolute;
-  left : 0px;
-  top : 0px;
 }
 
 #qImg img{
@@ -400,8 +420,8 @@ a, a:hover, a:active, a:visited {
   margin : 1.33em auto;
   background-color: white;
   opacity: 0.8;
-  height: 19em;
-  width : 40em;
+  height: 25em;
+  width : 39em;
   border-radius: 5px;
   box-shadow: 0px 5px 15px 0px;
   position: relative;
@@ -464,5 +484,4 @@ input[type="button"]{
     }
     
     ::placeholder{
-        color: rgb(27, 27, 27);}  
-    
+        color: rgb(27, 27, 27);} 
