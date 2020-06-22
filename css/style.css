@@ -169,14 +169,14 @@ h1{
   ". playlist ." ;
   margin-bottom: 4em;
 }
-
+/* 
 img{
   opacity: 0;
   -moz-transition: opacity 2s;
   -webkit-transition: opacity 2s;
   -o-transition: opacity 2s;
   transition: opacity 2s;
-}
+} */
 
 /*dictionary*/
 .playlist{
@@ -270,8 +270,7 @@ a, a:hover, a:active, a:visited {
 } 
 
 #wordCon{
-  scale:1.5;
-  margin : 3em auto ;
+  margin : 6em auto ;
   height: 12em;
   width : 20em;
   border-radius: 5px;
@@ -280,7 +279,7 @@ a, a:hover, a:active, a:visited {
 }
 
 #wordCon:hover{
-  transform: scale(1.25);
+  transform: scale(1.15);
 }
 
 /* #defin {
@@ -338,7 +337,7 @@ a, a:hover, a:active, a:visited {
 
 #question{
   width:60em;
-  height :19em;
+  height :4em;
   position: absolute;
   right:0;
   top:0;
@@ -351,24 +350,22 @@ a, a:hover, a:active, a:visited {
 }
 
 #qVideos{
-  height:12em;
-  width: 13.33em;
-  /* grid-column-start: span 3; */
-  /* position: relative; */
-  /* transition: var(--ease); */
-  background-size: cover;
-  background-position: center;
-  /* background-repeat: no-repeat; */
-  background-image: url(../images/008.jpg);
+  top:75px;
+  margin : 5em auto ;
+  height: 16em;
+  width : 20em;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0px 5px 15px 0px;
 }
   
 #choices{
   /* width : 50em; */
   position: absolute;
   right : 0;
-  top : 8.33em;
+  top : 13em;
   padding : 20px;
-  margin: 145px 100px;
+  margin: 142px 100px;
 
 }
 
@@ -450,11 +447,11 @@ a, a:hover, a:active, a:visited {
   display: none;
 }
 
-#scoreContainer img{
+/* #scoreContainer img{
   position: absolute;
   top:6.66em;
   left:22em;
-}
+} */
 
 #scoreContainer p{
   position: absolute;
