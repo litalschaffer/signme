@@ -32,7 +32,7 @@
         <li><a href="#Contact">Contact</a></li>
       </ul>
   </nav>   <!--?-->
-  </section><!--END top section-->
+    </section><!--END top section-->
   </div><!--END WRAPPER-->
 
     <!--second-page-->
@@ -126,13 +126,12 @@
   <!--forth page-->
   <section id="Game">
     <h1 >Game</h1> 
-      <div id="container">
-        <div id="startGame">Start Quiz!</div>
-          <div id="quiz" style="display: none">
-            <div id="question"></div>
-                <div class="videosQues">
-                </div>
-                <div id="choices">
+    <div id="container">
+      <div id="startGame">Start Quiz!</div>
+      <div id="quiz" style="display: none">
+        <div id="question">
+        <div id="qVideos" ></div></div>
+          <div id="choices">
                   <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                   <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                   <div class="choice" id="C" onclick="checkAnswer('C')"></div>
@@ -145,6 +144,7 @@
               <div id="progress"></div>
         <div id="scoreContainer" style="display: none"></div>
       </div>
+    </div>
   </section>
 
 <!--fifth page-->

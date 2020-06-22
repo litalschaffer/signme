@@ -1,9 +1,10 @@
+
+  
 // select all elements
 const start = document.getElementById("startGame");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
-//  const videoQues = document.getElementById("videoQues");
-const qImg = document.getElementById("qImg");
+const qVideos = document.getElementById("qVideos");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
@@ -15,22 +16,22 @@ const scoreDiv = document.getElementById("scoreContainer");
 // create our questions
 let questions = [
     {
-        question :"https://youtu.be/OW3CdpmD3w4",
-        imgSrc : "'images/VIDEO01.jpg'",
-        choiceA : "'images/VIDEO01.jpg'",
+        question : "Which sign is this?",
+        imgSrc: "https://youtu.be/OW3CdpmD3w4",
+        choiceA : "Correct",
         choiceB : "Wrong",
         choiceC : "Wrong",
         correct : "A"
     },{
-        question : "https://youtu.be/OW3CdpmD3w4",
-        imgSrc : "images/css.png",
+        question : "Which sign is this?",
+        imgSrc : "img/js.png",
         choiceA : "Wrong",
         choiceB : "Correct",
         choiceC : "Wrong",
         correct : "B"
     },{
-        question : "https://youtu.be/OW3CdpmD3w4",
-        imgSrc : "images/js.png",
+        question : "Which sign is this?",
+        imgSrc : "img/js.png",
         choiceA : "Wrong",
         choiceB : "Wrong",
         choiceC : "Correct",
@@ -38,14 +39,41 @@ let questions = [
     }
 ];
 
-const Ques=$('.videoQues')
-const videoQuesElem = $(`<div class="video" style="background-image: url(${dictionary[0][0]})">
-        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${dictionary[0][1]}" data-gall="myGallery">
-        <i class="fas fa-play-circle"></i></a>
-    </div>`)
-    Ques.append(videoQuesElem)
+// //  for loop -video QUIZ OPTIONS
+// const quizQues = [
+//     ['how are you?','images/VIDEO01.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['happy','images/VIDEO02.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['yes','images/VIDEO03.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['ok','images/VIDEO04.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['ok2','images/VIDEO05.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['day','images/VIDEO06.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['quiet','images/VIDEO07.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['gfb','images/VIDEO08.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['yes2','images/VIDEO09.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['how are you?2','images/VIDEO10.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['ok3','images/VIDEO11.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     ['feeling','images/VIDEO12.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//   ]
+// const qVids = $('#qVideos')
+  
+// for (const entry of quizQues) {
+//     const entryElem = $(`<div id="qVideo">
+//         <a href="${entry[2]}"></a>
+//     </div>`)
+//     qVids.append(entryElem)
+//  }
 
-    
+
+
+// const vids = $('.videos')
+
+// for (const entry of dictionary) {
+//     const entryElem = $(`<div class="video" style="background-image: url(${entry[0]})">
+//         <a class="venobox" data-autoplay="true" data-vbtype="video" href="${entry[1]}" data-gall="myGallery">
+//         <i class="fas fa-play-circle"></i></a>
+//     </div>`)
+//     vids.append(entryElem)
+//  }
 
 // create some variables
 
@@ -63,7 +91,7 @@ function renderQuestion(){
     let q = questions[runningQuestion];
     
     question.innerHTML = "<p>"+ q.question +"</p>";
-    // qImg.innerHTML = "<img src="+ q.imgSrc +">";
+    qVideos.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;

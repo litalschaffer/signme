@@ -20,11 +20,11 @@ function getDate() {
     var year = date.getFullYear();
 
     var marker = "th";
-    if (day == 1 || day == 21) {
+    if (day === 1 || day === 21) {
         marker = "st";
-    } else if (day == 2 || day == 22) {
+    } else if (day === 2 || day === 22) {
         marker = "nd";
-    } else if (day == 3 || day == 23) {
+    } else if (day === 3 || day === 23) {
         marker = "rd";
     } 
 
@@ -56,10 +56,10 @@ function theWord(callback) {
     });
 }
 const words = $('#wordCon')
-var idic= Math.floor(Math.random(date.getDate)*dictionary.length);
+var idic= Math.floor(Math.random(Date.getDate) *dictionary.length);
 
-    const entryElem = $(`<div class="video" style="background-image: url(${dictionary[idic][0]})">
-        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${dictionary[idic][1]}" data-gall="myGallery">
+    const entryElem = $(`<div class="video" style="background-image: url(${dictionary[idic][1]})">
+        <a class="venobox" data-autoplay="true" data-vbtype="video" href="${dictionary[idic][2]}" data-gall="myGallery">
         <i class="fas fa-play-circle"></i></a>
     </div>`)
     words.append(entryElem)
