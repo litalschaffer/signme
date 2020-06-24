@@ -11,61 +11,58 @@ const timeGauge = document.getElementById("timeGauge");
 const progress = document.getElementById("progress");
 const scoreDiv = document.getElementById("scoreContainer");
 
-// create our questions
-let questions = [
-    {
-        question : "Which sign is this?" ,
-        imgSrc: "https://youtu.be/OW3CdpmD3w4",
-        choiceA : 'images/ques02.jpg',
-        choiceB : "Wrong",
-        choiceC : "Wrong",
-        correct : "A"
-    },{
-        question : "Which sign is this?",
-        imgSrc : "images/js.png",
-        choiceA : "Wrong",
-        choiceB : "Correct",
-        choiceC : "Wrong",
-        correct : "B"
-    },{
-        question : "Which sign is this?",
-        imgSrc : "images/js.png",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
-        correct : "C"
-    }
-];
+// // create our questions
+// let questions = [
+//     {
+//         question : "Which sign is this?" ,
+//         imgSrc: "https://youtu.be/OW3CdpmD3w4",
+//         choiceA : "images/ques2.jpg",
+//         choiceB : "Wrong",
+//         choiceC : "Wrong",
+//         correct : "A"
+//     },{
+//         question : "Which sign is this?",
+//         imgSrc : "images/js.png",
+//         choiceA : "Wrong",
+//         choiceB : "Correct",
+//         choiceC : "Wrong",
+//         correct : "B"
+//     },{
+//         question : "Which sign is this?",
+//         imgSrc : "images/js.png",
+//         choiceA : "Wrong",
+//         choiceB : "Wrong",
+//         choiceC : "Correct",
+//         correct : "C"
+//     }
+// ];
 
 
-const qDictionary = [
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-    ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-  ]
+// const qDictionary = [
+//     ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//     // ['how are you?','images/ques2.jpg', 'https://youtu.be/OW3CdpmD3w4'],
+//   ]
 
 
+// const qVids = $('#qVideos')
 
-
-
-const qVids = $('#qVideos')
-
-for (const entry of qDictionary) {
-    const entryElem = $(`<div class="video" style="background-image: url(${entry[1]})">
-            <a class="venobox" data-autoplay="true" data-vbtype="video" href="${entry[2]}" data-gall="myGallery">
-            <i class="fas fa-play-circle"></i></a>
-       </div>`)
-    qVids.append(entryElem)
-}
+// for (const entry of qDictionary) {
+//     const entryElem = $(`<div class="video" style="background-image: url(${entry[1]})">
+//             <a class="venobox" data-autoplay="true" data-vbtype="video" href="${entry[2]}" data-gall="myGallery">
+//             <i class="fas fa-play-circle"></i></a>
+//        </div>`)
+//     qVids.append(entryElem)
+// }
 
 
 
@@ -116,7 +113,8 @@ for (const entry of qDictionary) {
 
 // create some variables
 
-const lastQuestion = questions.length - 1;
+let questions = [];
+let lastQuestion = 2;
 let runningQuestion = 0;
 let count = 0;
 const questionTime = 10; // 10s
@@ -128,16 +126,43 @@ let score = 0;
 // render a question
 function renderQuestion(){
     let q = questions[runningQuestion];
+
+    
+    vid = `<iframe width="340" height="218" src="https://www.youtube.com/embed/${q.vidSrc.split('/').reverse()[0]}?controls=0" 
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+
     
     question.innerHTML = "<p>"+ q.question +"</p>";
-    // qVideos.innerHTML = "<img src="+ q.imgSrc +">";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
+    qVideos.innerHTML = vid
+    choiceA.innerHTML = `<img src="${q.choiceA}">`
+    choiceB.innerHTML = `<img src="${q.choiceB}">`
+    choiceC.innerHTML = `<img src="${q.choiceC}">`
+}
+
+function generateQuestions() {
+    questions = []
+    const num_of_questions = 3;
+
+    for(let i = 0; i < num_of_questions; ++i) {
+        const options = _.shuffle(['A', 'B', 'C'])
+        const entries = _.sampleSize(dictionary, 3)
+
+        const question = {
+            'question': 'Which sign is this?',
+            'vidSrc': entries[0][2],
+            'correct': options[0],
+        }
+        question[`choice${options[0]}`] = entries[0][1]
+        question[`choice${options[1]}`] = entries[1][1]
+        question[`choice${options[2]}`] = entries[2][1]
+
+        questions.push(question)
+    }
 }
 
 // start quiz
 function startQuiz(){
+    generateQuestions();
     start.style.display = "none";
     renderQuestion();
     quiz.style.display = "block";

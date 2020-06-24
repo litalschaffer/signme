@@ -1,17 +1,14 @@
 "use strict"
 
-/*******************************************
-* Resize the image to fit the user's screen
-********************************************/
+// Resize the image to fit the user's screen
 function placeImage(w, h) {
     w = window.screen.availWidth;
     h = window.screen.availHeight;
 
     $('body').append($('<img src=' + '"https://source.unsplash.com/collection/10578792/' + w + 'x' + h + '"' + ' id="bg" alt="">'))
 }
-/**************************************
-* Get the date and place it at the top
-***************************************/
+
+//  Get the date and place it at the top
 function getDate() {
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var date = new Date();
@@ -31,9 +28,7 @@ function getDate() {
     document.getElementById('date').innerHTML = monthNames[monthIndex] + ' ' + day + marker + ' ' + year;
 }
 
-/*******************************************************************
-* Use the Wordnik API to get the word of the day and its definition
-********************************************************************/
+// Use the Wordnik API to get the word of the day and its definition
 function theWord(callback) {
     var baseUrl = "https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=";
     var apiKey = "1380d58b8b5c33325130c0e8f340be6bc6fba6f7bb65bfc6f";
@@ -55,6 +50,8 @@ function theWord(callback) {
 
     });
 }
+
+// loop from dictionary array(main.js)
 const words = $('#wordCon')
 var idic= Math.floor(Math.random(Date.getDate) *dictionary.length);
 
@@ -65,22 +62,16 @@ var idic= Math.floor(Math.random(Date.getDate) *dictionary.length);
     words.append(entryElem)
  
 
-/**********************************************************
-* Use the Wordnik API to get the pronunciation of the word
-***********************************************************/
+
+//  Use the Wordnik API to get the pronunciation of the word
 function pronounceIt() {
     var baseUrl = "https://api.wordnik.com/v4/word.json/"
     var apiKey = "1380d58b8b5c33325130c0e8f340be6bc6fba6f7bb65bfc6f";
-    // // var word = $("#word").text();
-    // var word = "test";
-    // var apiUrl = baseUrl + word + "/pronunciations?useCanonical=false&typeFormat=ahd&limit=50&api_key=" + apiKey;
-    // $("#link").attr("href", "http://www.dictionary.com/browse/" + word + "?s=t"); //link to dictionary.com page
-
+  
 }
 
-/****************************
-* Fade in the image and text
-*****************************/
+
+// Fade in the image and text
 $(document).ready(function() {
     placeImage();
     getDate();
@@ -88,29 +79,3 @@ $(document).ready(function() {
     $('img').css('opacity', 1);
     $('body').css('opacity', 1);
 });
-
-
-
-// use localStorage
-//https://developer.mozilla.org/en/docs/Web/API/Window/localStorage
-//http://codepen.io/CrocoDillon/pen/pIlKB?editors=0010
-
-
-
-// for loop -dictionary gallery
-// const dictionary = [
-//     ['images/VIDEO01.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO02.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO03.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO04.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO05.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO06.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO07.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO08.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO09.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO10.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO11.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-//     ['images/VIDEO12.jpg', 'https://youtu.be/OW3CdpmD3w4'],
-// ]
-
-
