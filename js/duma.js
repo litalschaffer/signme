@@ -28,29 +28,6 @@ function getDate() {
     document.getElementById('date').innerHTML = monthNames[monthIndex] + ' ' + day + marker + ' ' + year;
 }
 
-// Use the Wordnik API to get the word of the day and its definition
-function theWord(callback) {
-    var baseUrl = "https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=";
-    var apiKey = "1380d58b8b5c33325130c0e8f340be6bc6fba6f7bb65bfc6f";
-    var apiUrl = baseUrl + apiKey;
-
-    //A promise is needed here, as without it the second API call would return before pronounceIt() can execute the callback, and we would get, well, nothing, instead of the actual word.
-    return new Promise(function(resolve, reject) {
-        
-      $.ajax({
-          type: "GET",
-          url: apiUrl,
-          dataType: "json",
-          success: function(data) {
-              $("#word").append(data.word);
-              $("#defin").append(data.definitions[0].text);
-              resolve();
-          }
-      });
-
-    });
-}
-
 // loop from dictionary array(main.js)
 const words = $('#wordCon')
 var idic= Math.floor(Math.random(Date.getDate) *dictionary.length);
@@ -60,22 +37,12 @@ var idic= Math.floor(Math.random(Date.getDate) *dictionary.length);
         <i class="fas fa-play-circle"></i></a>
     </div>`)
     words.append(entryElem)
- 
-
-
-//  Use the Wordnik API to get the pronunciation of the word
-function pronounceIt() {
-    var baseUrl = "https://api.wordnik.com/v4/word.json/"
-    var apiKey = "1380d58b8b5c33325130c0e8f340be6bc6fba6f7bb65bfc6f";
-  
-}
-
 
 // Fade in the image and text
 $(document).ready(function() {
     placeImage();
     getDate();
-    theWord().then(pronounceIt);
-    $('img').css('opacity', 1);
-    $('body').css('opacity', 1);
+    // theWord().then(pronounceIt);
+    // $('img').css('opacity', 1);
+    // $('body').css('opacity', 1);
 });
